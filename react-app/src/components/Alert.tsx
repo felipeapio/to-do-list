@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 interface Props {
+  id?: string;
   text: string;
   classType?: string;
   displayType?: string;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const Alert = ({
+  id,
   button,
   classType = "alert alert-primary",
   displayType = "d-display",
@@ -15,7 +17,7 @@ const Alert = ({
 }: Props) => {
   return (
     <>
-      <div className={classType + " " + displayType} role="alert">
+      <div id={id} className={classType + " " + displayType} role="alert">
         {text} {button}
       </div>
     </>

@@ -1,7 +1,8 @@
 interface Props {
-  onClose?: () => void;
+  onClick?: () => void;
+  text: string;
 }
-const InputText = ({ onClose }: Props) => {
+const InputText = ({ onClick, text }: Props) => {
   return (
     <>
       <div className="input-group mb-3">
@@ -11,13 +12,15 @@ const InputText = ({ onClose }: Props) => {
           placeholder="Insira Qualquer Coisa"
           aria-label="Recipient’s username"
           aria-describedby="button-addon2"
+          id="toDoList"
         />
         <button
           className="btn btn-outline-secondary"
           type="button"
-          id="button-addon2"
+          id="inserir"
+          onClick={onClick}
         >
-          Inserir
+          {text}
         </button>
       </div>
     </>
