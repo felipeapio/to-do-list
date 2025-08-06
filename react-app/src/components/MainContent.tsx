@@ -12,6 +12,14 @@ const MainContent = () => {
     setNamesList((prevNamesList) => [...prevNamesList, String(novoNome.value)]);
   };
 
+  const handleDeleteChange = (id: number, display: string) => {
+    //let novoNome = document.getElementById("toDoList") as HTMLInputElement;
+    //setNamesList((prevNamesList) => [...prevNamesList, String(novoNome.value)]);
+    namesList.splice(id, 1);
+    setNamesList([...namesList]);
+    display = "d-none";
+  };
+
   return (
     <>
       {namesList.map((item, index) => (
@@ -20,7 +28,10 @@ const MainContent = () => {
           classType="alert alert-primary alert-dismissible"
           displayType={display}
           text={item}
-          button={<Button onClick={() => setDisplay("d-none")}></Button>}
+          //button={<Button onClick={() => setDisplay("d-none")}></Button>}
+          button={
+            <Button onClick={() => handleDeleteChange(index, display)}></Button>
+          }
         ></Alert>
       ))}
       <InputText onClick={handleInsertChange} text="Inserir"></InputText>

@@ -1,5 +1,6 @@
 interface Props {
   onClick?: () => void;
+  //onDelete?: () => void;
 }
 const Button = ({ onClick }: Props) => {
   return (
